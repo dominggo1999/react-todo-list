@@ -1,48 +1,15 @@
-import React,{ Component } from 'react';
-import Todos from './Todos';
-import AddTodo from './AddTodo';
+import React ,{ Component } from 'react';
+
+import './styles/main.scss';
+
+import TodoApp from './components/TodoApp.js';
 
 
-class App extends Component {
-	state = {
-		todos : [
-			{
-				content : 'Reading novel',
-				id : 1
-			},
-			{
-				content : 'Hacking',
-				id : 2
-			}
-		]
-	}
-
-	deleteTodo = (id) =>{
-		const todos = this.state.todos.filter(todo=>{
-			return todo.id !== id;
-		});
-
-		this.setState({
-			todos
-		})
-	}
-
-	addTodo = (todo) =>{
-		todo.id = Math.random() * 100;
-
-		const todos = [...this.state.todos, todo];
-
-		this.setState({
-			todos
-		})
-	}
-
-	render(){
+class App extends Component{
+	render() {
 		return (
-			<div className="todos-app container">
-				<h1 className="center blue-text">Todooz</h1>
-				<Todos todos = {this.state.todos} deleteTodo ={this.deleteTodo}/>
-				<AddTodo addTodo = {this.addTodo}/>
+			<div>
+				<TodoApp/>
 			</div>
 		)
 	}

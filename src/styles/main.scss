@@ -1,0 +1,209 @@
+$green : #499571;
+$lightgreen :  #99e0bf;
+$dark : #222224;
+$grey : #757575;
+$white : #FFFFFF;
+$roboto : 'Roboto', sans-serif;
+$oswald : 'Oswald', sans-serif;
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background: $dark !important;
+}
+
+.todo-app{
+	width: 100%;
+	h1.title{
+		font-family: $roboto;
+		font-size: 42px;
+		padding: 35px 0 ;
+		width: 100%;
+		text-align: center; 
+		background: $green;
+		position: fixed;
+	}
+
+	.container{
+		margin-top: 80px;
+		max-width: 1000px;
+		padding: 0 30px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		position: relative;
+
+		.add-todo{
+			position: fixed;
+			top: 200px;
+			z-index: 10;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			label,input,button{
+				display:block;
+			}
+			
+			form{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				text-align: center;
+			}
+
+			label{
+				font-size: 17px;
+				font-family: $roboto;
+				font-weight: 500;
+				letter-spacing: 1px;
+				color: $white;
+				margin-bottom: 5px;
+			}
+
+			input{
+			    background: none;
+			    outline: none;
+			    width: 340px;
+			    height: 50px;
+			    text-align: center;
+			    border: none;
+			    border-bottom: solid #ffffff 2px;
+			    color: #fff;
+			    padding-bottom: 10px;
+			    letter-spacing: 1px;
+			    font-family: $oswald;
+			    font-size: 35px;
+			    margin: 5px 0 40px;
+			}
+
+			input:nth-of-type(2){
+ 				 font-size: 25px;
+			}
+
+			button{
+				cursor: pointer;
+				transition: background ease-in-out 200ms;
+			    border-radius: 10px;
+			    outline: none;
+			    border: none;
+			    background: $green;
+			    font-family: $oswald;
+			    font-size: 24px;
+			    color: #222224;
+			    margin: 0 10px;
+			    letter-spacing: 1px;
+
+			    &:hover{
+			    	background: $lightgreen;
+			    }
+			}
+
+
+		}
+
+		.display-todos{
+			position: absolute;
+			z-index: -1;
+			right: 0;
+			top: 200px;
+			width: 500px;
+			padding-bottom: 80px;
+
+
+			.todo-item{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.left{
+					position: relative;
+					display: flex;
+					.dot{
+						position: absolute;
+						font-size: 10px;
+						top: 13px;
+						color: $green;
+					}
+
+					.todo-text{
+						margin-left: 25px;
+						color: $white;
+						margin-bottom: 10px;
+
+						.todo{
+							font-family: $oswald;
+						    font-size: 22px;
+						    font-weight: 500;
+						    letter-spacing: 1px;
+						}
+
+						.task{
+							font-family: $roboto;
+						    font-weight: 400px;
+						    font-size: 16px;
+						    letter-spacing: 1px;
+						    line-height: 25px;
+						}
+					}
+				}
+
+
+				.icons{
+					display: flex;
+					.remove, .finished{
+						cursor: pointer;
+						color: $green;
+						width : 20px;
+						font-size: 22px;
+
+						&:hover{
+							color:$lightgreen;
+						};
+					}
+
+					.remove{
+						margin-right: 30px;
+					}
+
+					.finished {
+
+					}
+				}
+			}
+			.line-through{
+				text-decoration: line-through;
+			}
+		}
+	}	
+}
+
+
+@media screen and (max-width: 800px) {
+	.todo-app{
+		position: relative;
+		h1{
+			position: absolute;
+			margin-bottom: 50px;
+		}
+
+
+		.container{
+			position: relative;
+			display: block;
+			.add-todo{
+				position: relative;
+			}
+
+
+			.display-todos{
+				max-width: 400px;
+				display: block;
+				position: relative;
+			}
+		}
+	}
+}
